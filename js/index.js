@@ -128,10 +128,21 @@ filterButton.addEventListener('click', () => {
 
 let sortKind = 'bubbleSort'; // инициализация состояния вида сортировки
 let sortTime = '-'; // инициализация состояния времени сортировки
+let colorIn
+
+function colorInto (){
+  for (let i= 0; i<fruits.length; i++) {
+    if (fruits[i].color=== "фиолетовый"){
+    return colorIn = "фиолетовый";
+    } else if (fruits[i].color=== "светло-коричневый"){
+      colorIn = "светло-коричневый";
+    }
+  }
+};
 
 const comparationColor = (a, b) => {
-  const colorIn = colorInput.value;
-  return a.color === colorIn ? true : false;
+  colorInto ();
+  return a.color === colorIn? true : false;
 };
 
 const sortAPI = {
@@ -152,12 +163,11 @@ const sortAPI = {
     if (arr.length < 2) {
       return arr;
     }
-  
     let index
   for( let i=0; i< fruits.length; i++){
     if(comparation(fruits[i])){
       index = i
-    } else { index = 0} 
+    }
   }
     const pivot = arr[index];
     const less = [];
